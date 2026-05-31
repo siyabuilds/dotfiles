@@ -1,0 +1,54 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+# Layout: [user@host ~/src]
+# $ 
+format = """
+[\\[](bold green)$username$hostname$directory$git_branch$git_status$git_state[\\]](bold green)
+$character"""
+
+[username]
+format = "[$user]($style)"
+style_user = "bold green"
+style_root = "bold red"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style)"
+style = "bold green"
+
+[directory]
+format = " [$path]($style)"
+style = "bold green"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+symbol = ""
+format = " [($symbol$branch)]($style)"
+style = "green"
+
+[git_status]
+format = " [$all_status$ahead_behind]($style)"
+style = "green"
+conflicted = "x"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+up_to_date = ""
+untracked = "?"
+stashed = "*"
+modified = "!"
+staged = "+"
+renamed = "r"
+deleted = "-"
+
+[git_state]
+format = " [$state($progress_current/$progress_total)]($style)"
+style = "green"
+
+[character]
+success_symbol = "[\\$](bold green) "
+error_symbol = "[\\$](bold red) "
