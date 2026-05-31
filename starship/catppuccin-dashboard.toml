@@ -1,0 +1,277 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+
+[╭─ ](bold #a6e3a1)\
+
+[](fg:#eba0ac)\
+
+$os\
+
+$username\
+
+$shell\
+
+[](fg:#eba0ac) \
+
+[](fg:#89b4fa)\
+
+$directory\
+
+[](fg:#89b4fa) \
+
+[](fg:#cba6f7)\
+
+$git_branch\
+
+$git_status\
+
+$git_state\
+
+[](fg:#cba6f7) \
+
+[](fg:#a6e3a1)\
+
+$nodejs\
+
+$rust\
+
+$golang\
+
+$python\
+
+$docker_context\
+
+[](fg:#a6e3a1)\
+
+$fill\
+
+[](fg:#f9e2af)\
+
+$memory_usage\
+
+[](fg:#f9e2af) \
+
+[](fg:#fab387)\
+
+$cmd_duration\
+
+[](fg:#fab387) \
+
+[](fg:#f38ba8)\
+
+$status\
+
+$time\
+
+[](fg:#f38ba8)\n\
+
+[╰─](bold #a6e3a1) $character"""
+
+
+
+[fill]
+
+symbol = " "
+
+
+
+[os]
+
+disabled = false
+
+style = "bg:#eba0ac fg:#11111b bold"
+
+format = "[ $symbol]($style)"
+
+
+
+[os.symbols]
+
+Arch = "󰣇"
+
+Alpine = ""
+
+Ubuntu = "󰕈"
+
+Macos = "󰀵"
+
+Linux = "󰌽"
+
+Debian = "󰣚"
+
+
+
+[username]
+
+show_always = true
+
+style_user = "bg:#eba0ac fg:#11111b bold"
+
+style_root = "bg:#eba0ac fg:#11111b bold"
+
+format = "[$user ]($style)"
+
+
+
+[directory]
+
+style = "bg:#89b4fa fg:#11111b bold"
+
+format = "[ 󰉋 $path4]($style)"
+
+truncation_length = 3
+
+truncation_symbol = "…/"
+
+
+
+[directory.substitutions]
+
+"Documents" = "󰈙 "
+
+"Downloads" = "󰉍 "
+
+"Music" = "󰝚 "
+
+"Pictures" = "󰋩 "
+
+
+
+[git_branch]
+
+symbol = ""
+
+style = "bg:#cba6f7 fg:#11111b bold"
+
+format = '[ $symbol $branch ]($style)'
+
+
+
+[git_status]
+
+style = "bg:#cba6f7 fg:#11111b bold"
+
+format = '[$all_status$ahead_behind ]($style)'
+
+
+
+[nodejs]
+
+symbol = ""
+
+style = "bg:#a6e3a1 fg:#11111b bold"
+
+format = '[ $symbol ($version) ]($style)'
+
+
+
+[rust]
+
+symbol = ""
+
+style = "bg:#a6e3a1 fg:#11111b bold"
+
+format = '[ $symbol ($version) ]($style)'
+
+
+
+[golang]
+
+symbol = ""
+
+style = "bg:#a6e3a1 fg:#11111b bold"
+
+format = '[ $symbol ($version) ]($style)'
+
+
+
+[python]
+
+symbol = ""
+
+style = "bg:#a6e3a1 fg:#11111b bold"
+
+format = '[ $symbol ($version) ]($style)'
+
+
+
+[docker_context]
+
+symbol = ""
+
+style = "bg:#a6e3a1 fg:#11111b bold"
+
+format = '[ $symbol $context ]($style)'
+
+
+
+[memory_usage]
+
+disabled = false
+
+threshold = 50
+
+style = "bg:#f9e2af fg:#11111b bold"
+
+format = '[ 󰍛 $ram ]($style)'
+
+
+
+[cmd_duration]
+
+min_time = 2000
+
+style = "bg:#fab387 fg:#11111b bold"
+
+format = '[  $duration ]($style)'
+
+
+
+[time]
+
+disabled = false
+
+time_format = "%R"
+
+style = "bg:#f38ba8 fg:#11111b bold"
+
+format = '[  $time ]($style)'
+
+
+
+[character]
+
+success_symbol = "[❯](bold #a6e3a1)"
+
+error_symbol = "[❯](bold #f38ba8)"
+
+
+
+[git_state]
+
+style = "bg:#cba6f7 fg:#11111b bold"
+
+format = '[\($state ($progress_current/$progress_total)\) ]($style)'
+
+
+
+[shell]
+
+disabled = false
+
+style = "bg:#eba0ac fg:#11111b bold"
+
+format = '[ 󱆃 $indicator ]($style)'
+
+
+
+[status]
+
+disabled = false
+
+style = "bg:#f38ba8 fg:#11111b bold"
+
+format = '[ ✗ $status ]($style)'
