@@ -1,0 +1,128 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+
+# LEFT ALIGNED: OS -> Hostname -> Shell -> Directory -> Git
+format = """
+[](fg:#003543)\
+$os\
+[](bg:#005b72 fg:#003543)\
+$hostname\
+[](bg:#0081a1 fg:#005b72)\
+$shell\
+[](bg:#00a7d0 fg:#0081a1)\
+$directory\
+[](bg:#00cdff fg:#00a7d0)\
+$git_branch$git_status\
+[](fg:#00cdff)\
+\n$character"""
+
+# RIGHT ALIGNED: Runtimes <- Docker <- Kubernetes <- Time <- RAM <- Status
+right_format = """
+[](fg:#ffca3a)\
+$nodejs$python$rust$golang\
+[](bg:#ffca3a fg:#ff924c)\
+$docker_context\
+[](bg:#ff924c fg:#ff595e)\
+$kubernetes\
+[](bg:#ff595e fg:#8ac926)\
+$time\
+[](bg:#8ac926 fg:#1982c4)\
+$memory_usage\
+[](bg:#1982c4 fg:#6a4c93)\
+$status\
+[](fg:#6a4c93)\
+"""
+
+[os]
+disabled = false
+style = "bg:#003543 fg:#ffffff"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Arch = ""
+Debian = ""
+Linux = ""
+Macos = ""
+Ubuntu = ""
+Windows = "󰍲"
+
+[hostname]
+ssh_only = false
+style = "bg:#005b72 fg:#ffffff"
+format = "[ $ssh_symbol$hostname ]($style)"
+
+[shell]
+disabled = false
+style = "bg:#0081a1 fg:#ffffff"
+format = "[ $indicator ]($style)"
+
+[directory]
+style = "bg:#00a7d0 fg:#111111"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+style = "bg:#00cdff fg:#111111"
+format = "[ $symbol$branch ]($style)"
+
+[git_status]
+style = "bg:#00cdff fg:#111111"
+format = "[$all_status$ahead_behind ]($style)"
+
+[nodejs]
+style = "bg:#ffca3a fg:#111111"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[python]
+style = "bg:#ffca3a fg:#111111"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[rust]
+style = "bg:#ffca3a fg:#111111"
+format = "[ $symbol ]($style)"
+symbol = " "
+
+[golang]
+style = "bg:#ffca3a fg:#111111"
+format = "[ $symbol ]($style)"
+symbol = " "
+
+[docker_context]
+style = "bg:#ff924c fg:#111111"
+format = "[ $symbol$context ]($style)"
+symbol = " "
+
+[kubernetes]
+disabled = false
+style = "bg:#ff595e fg:#ffffff"
+format = "[ $symbol$context ]($style)"
+symbol = "󱃾 "
+
+[time]
+disabled = false
+time_format = "%T"
+style = "bg:#8ac926 fg:#111111"
+format = "[ $symbol$time ]($style)"
+symbol = " "
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bg:#1982c4 fg:#ffffff"
+format = "[ $symbol${ram_pct} ]($style)"
+symbol = "󰍛 "
+
+[status]
+disabled = false
+style = "bg:#6a4c93 fg:#ffffff"
+format = '([ $symbol$status ]($style))'
+success_symbol = ""
+symbol = " "
+
+[character]
+success_symbol = "[ ╰─❯](bold fg:#8ac926)"
+error_symbol = "[ ╰─❯](bold fg:#ff595e)"
